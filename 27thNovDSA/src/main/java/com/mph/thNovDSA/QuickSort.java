@@ -12,16 +12,20 @@ public class QuickSort {
 	private static int partition(int[] arr, int low, int high) {
 		int pivot=arr[low];
 		int i=low,j=high;
-		while(true) {
-			while(i<=j && arr[i]<arr[pivot])i++;
-			while(i<=j && arr[i]>=arr[pivot])j--;
-			int temp=arr[i];
-			arr[i]=arr[j];
-			arr[j]=temp;
+		while(i<j) {
+			while(i<=j && arr[i]<=pivot)i++;
+			while(i<=j && arr[i]>pivot)j--;
+			if(i<j) {
+				int temp=arr[i];
+				arr[i]=arr[j];
+				arr[j]=temp;
+			}
+		
 		}
 		int temp=arr[low];
 		arr[low]=arr[j];
 		arr[j]=temp;
+		return j;
 	}
 
 	public static void main(String[] args) {
