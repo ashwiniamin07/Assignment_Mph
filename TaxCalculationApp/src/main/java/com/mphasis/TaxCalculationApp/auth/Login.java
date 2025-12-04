@@ -1,4 +1,4 @@
-package com.mph.TaxCalculationApplication;
+package com.mphasis.TaxCalculationApp.auth;
 
 import java.util.Scanner;
 

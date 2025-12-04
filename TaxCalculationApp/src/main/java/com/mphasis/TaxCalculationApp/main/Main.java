@@ -1,6 +1,10 @@
-package com.mph.TaxCalculationApplication;
+package com.mphasis.TaxCalculationApp.main;
 
 import java.util.Scanner;
+
+import com.mphasis.TaxCalculationApp.auth.Login;
+import com.mphasis.TaxCalculationApp.service.PropertyService;
+import com.mphasis.TaxCalculationApp.service.VehicleService;
 
 public class Main {
 	 // ---------- TOTAL DISPLAY METHOD ----------

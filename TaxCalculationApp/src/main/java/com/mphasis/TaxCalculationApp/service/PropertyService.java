@@ -1,7 +1,11 @@
-package com.mph.TaxCalculationApplication;
+package com.mphasis.TaxCalculationApp.service;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.mphasis.TaxCalculationApp.exception.InputValidator;
+import com.mphasis.TaxCalculationApp.exception.InvalidInputException;
+import com.mphasis.TaxCalculationApp.model.Property;
 
 public class PropertyService {
 	private ArrayList<Property> properties = new ArrayList<>();

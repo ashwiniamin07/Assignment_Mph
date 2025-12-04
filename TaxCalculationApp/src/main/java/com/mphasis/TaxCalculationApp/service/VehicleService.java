@@ -1,7 +1,11 @@
-package com.mph.TaxCalculationApplication;
+package com.mphasis.TaxCalculationApp.service;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.mphasis.TaxCalculationApp.exception.InputValidator;
+import com.mphasis.TaxCalculationApp.exception.InvalidInputException;
+import com.mphasis.TaxCalculationApp.model.Vehicle;
 
 public class VehicleService {
 	ArrayList<Vehicle> vehicles = new ArrayList<>();

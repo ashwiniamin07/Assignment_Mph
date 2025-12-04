@@ -1,4 +1,4 @@
-package com.mph.TaxCalculationApplication;
+package com.mphasis.TaxCalculationApp.model;
 
 public class Property implements TaxCalculator {
 	private int id;

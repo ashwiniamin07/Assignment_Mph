@@ -1,4 +1,4 @@
-package com.mph.TaxCalculationApplication;
+package com.mphasis.TaxCalculationApp.model;
 
 public class Vehicle implements TaxCalculator {
 	 private String regNo;
