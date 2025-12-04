@@ -5,12 +5,25 @@ import java.util.Scanner;
 
 public class VehicleService {
 	ArrayList<Vehicle> vehicles = new ArrayList<>();
+	private boolean isRegNoUnique(String reg) {
+	    for (Vehicle v : vehicles) {
+	        if (v.getRegNo().equals(reg)) {
+	            return false;
+	        }
+	    }
+	    return true;
+	}
+
 
     public void addVehicle(Scanner sc) {
         try {
-            System.out.print("Enter registration number: ");
-            String reg = sc.next();
-            InputValidator.validateRegNo(reg);
+        	System.out.print("Enter registration number: ");
+        	String reg = sc.next();
+        	InputValidator.validateRegNo(reg);
+
+        	if (!isRegNoUnique(reg)) {
+        	    throw new InvalidInputException("Registration number must be unique.");
+        	}
 
             System.out.print("Enter brand: ");
             String brand = sc.next();
@@ -29,8 +42,16 @@ public class VehicleService {
             InputValidator.validateSeats(seats);
 
             System.out.print("Enter vehicle type (1-Petrol, 2-Diesel, 3-CNG): ");
-            int type = sc.nextInt();
+            int type = -1;
+            try {
+                type = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Invalid input! Vehicle type must be numeric (1-3).");
+                sc.nextLine(); // clear buffer
+                return;
+            }
             InputValidator.validateType(type);
+
 
             Vehicle v = new Vehicle(reg, brand, vel, seats, type, cost);
             vehicles.add(v);
@@ -70,5 +91,7 @@ public class VehicleService {
     public int getTotalVehicles() {
         return vehicles.size();
     }
+    
+    
 
 }

@@ -38,10 +38,24 @@ public class Main {
 
         System.out.println("WELCOME TO TAX CALCULATION APP");
 
-        if (!login.doLogin(sc)) {
-            System.out.println("Invalid login. Exiting...");
+        boolean loggedIn = false;
+        int attempts = 0;
+
+        while (attempts < 3) {
+            if (login.doLogin(sc)) {
+                loggedIn = true;
+                break;
+            } else {
+                attempts++;
+                System.out.println("Wrong username or password. Attempts left: " + (3 - attempts));
+            }
+        }
+
+        if (!loggedIn) {
+            System.out.println("Too many failed attempts. Exiting...");
             return;
         }
+
 
         while (true) {
 
@@ -51,7 +65,14 @@ public class Main {
             System.out.println("4. EXIT");
             System.out.print("Enter choice: ");
 
-            int ch = sc.nextInt();
+            int ch = -1;
+            try {
+                ch = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Invalid input! Please enter a numeric choice.");
+                sc.nextLine(); // clear buffer
+                continue;
+            }
 
             switch (ch) {
 
@@ -95,7 +116,14 @@ public class Main {
             System.out.println("3. DISPLAY ALL PROPERTIES");
             System.out.println("4. BACK TO MAIN MENU");
 
-            int c = sc.nextInt();
+            int c = -1;
+            try {
+                c = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Invalid input! Please enter a numeric choice.");
+                sc.nextLine(); // clear buffer
+                continue;
+            }
 
             switch (c) {
                 case 1: ps.addProperty(sc); break;
@@ -118,7 +146,14 @@ public class Main {
             System.out.println("3. DISPLAY ALL VEHICLES");
             System.out.println("4. BACK TO MAIN MENU");
 
-            int c = sc.nextInt();
+            int c = -1;
+            try {
+                c = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Invalid input! Please enter a numeric choice.");
+                sc.nextLine(); // clear buffer
+                continue;
+            }
 
             switch (c) {
                 case 1: vs.addVehicle(sc); break;
