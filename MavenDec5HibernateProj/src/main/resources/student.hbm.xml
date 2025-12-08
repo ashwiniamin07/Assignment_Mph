@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.model.Student" table="student">
+        <id name="StudId" column="stud_id">
+            <!-- Use identity for MySQL auto-increment -->
+            <generator class="identity"/>
+        </id>
+        <property name="studName" column="stud_name"/>
+        <property name="course" column="course"/>
+        <property name="mobile" column="mobile"/>
+        <property name="email" column="email"/>
+    </class>
+</hibernate-mapping>
