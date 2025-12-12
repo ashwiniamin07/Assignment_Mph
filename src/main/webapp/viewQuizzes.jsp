@@ -19,7 +19,9 @@
     <p>
         <b><%= q.getTitle() %></b>
         <a href="startQuiz?quizId=<%= q.getId() %>">Start Quiz</a> |
-        <a href="addQuestion.jsp?quizId=<%= q.getId() %>">Add Question</a>
+<% if ("admin".equals(session.getAttribute("role"))) { %>
+    <a href="addQuestion.jsp?quizId=<%= q.getId() %>">Add Question</a>
+<% } %>
     </p>
 <%
     }

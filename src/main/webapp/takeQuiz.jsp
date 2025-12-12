@@ -13,7 +13,7 @@
 
 <h2>Quiz</h2>
 
-<form action="SubmitQuizServlet" method="post">
+<form action="submitQuiz" method="post">
 
 <input type="hidden" name="quizId" value="<%= quizId %>">
 

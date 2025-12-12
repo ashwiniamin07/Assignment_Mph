@@ -17,7 +17,8 @@
 
 <h2>Add Question to Quiz</h2>
 
-<form action="AddQuestionServlet method="post">
+<form action="addQuestion" method="post">
+
 
     <input type="hidden" name="quizId" value="<%= quizId %>">
 

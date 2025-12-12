@@ -4,18 +4,20 @@ import java.io.IOException;
 
 import com.mph.dao.QuestionDAO;
 import com.mph.model.Question;
+import com.mph.model.User;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 
 /**
  * Servlet implementation class AddQuestionServlet
  */
-@WebServlet("/AddQuestionServlet")
+//@WebServlet("/addQuestion")
 public class AddQuestionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -38,6 +40,14 @@ public class AddQuestionServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 HttpSession session = request.getSession(false);
+	        if (session == null || !"admin".equals(session.getAttribute("role"))) {
+	            response.sendRedirect("login.jsp?msg=unauthorized");
+	            return;
+	        }
+
+//	        User user = (User) session.getAttribute("user");
+//	        if (user == null) { response.sendRedirect("login.jsp"); return; }
 		int quizId = Integer.parseInt(request.getParameter("quizId"));
         String q = request.getParameter("question");
         String a =request.getParameter("optionA");

@@ -15,7 +15,8 @@
 
 <h2>Create New Quiz</h2>
 
-<form action="CreateQuizServlet" method="post">
+<form action="createQuiz" method="post">
+
     Quiz Title: <input type="text" name="title" required><br><br>
     <button type="submit">Create Quiz</button>
 </form>

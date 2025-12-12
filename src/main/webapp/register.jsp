@@ -9,7 +9,8 @@
 
 <h2>Create an Account</h2>
 
-<form action="RegisterServlet" method="post">
+<form action="register" method="post">
+
     Name: <input type="text" name="name" required><br><br>
     Email: <input type="email" name="email" required><br><br>
     Password: <input type="password" name="password" required><br><br>

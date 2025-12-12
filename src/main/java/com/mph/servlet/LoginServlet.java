@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpSession;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/LoginServlet")
+//@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -39,24 +39,25 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 String email =request.getParameter("email");
-	        String password =request.getParameter("password");
+		String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
-	        UserDAO dao = new UserDAO();
-	        User u = dao.login(email, password);
+        UserDAO dao = new UserDAO();
+        User u = dao.login(email, password);
 
-	        if (u != null) {
-	            HttpSession session = request.getSession();
-	            session.setAttribute("user", u);
+        if (u != null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", u);            // existing user object
+            session.setAttribute("role", u.getRole()); // important: role stored
 
-	            if (u.getRole().equals("admin")) {
-	                response.sendRedirect("admin_dashboard.jsp");
-	            } else {
-	                response.sendRedirect("dashboard.jsp");
-	            }
-	        } else {
-	            response.sendRedirect("login.jsp?msg=invalid");
-	        }
+            if ("admin".equals(u.getRole())) {
+                response.sendRedirect("admin_dashboard"); // admin dashboard servlet mapping (see web.xml)
+            } else {
+                response.sendRedirect("dashboard.jsp");
+            }
+        } else {
+            response.sendRedirect("login.jsp?msg=invalid");
+        }
 	}
 
 }
