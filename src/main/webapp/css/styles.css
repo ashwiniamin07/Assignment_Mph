@@ -1,0 +1,117 @@
+/* ---------------------------
+   GLOBAL STYLE
+----------------------------*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6fa;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: 380px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ---------------------------
+   FORM STYLE
+----------------------------*/
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+button {
+    padding: 12px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+input {
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+}
+
+input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+button {
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/* ---------------------------
+   QUIZ OPTIONS
+----------------------------*/
+.quiz-option {
+    background: #ecf0f1;
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 5px;
+}
+
+.quiz-option:hover {
+    background: #dcdde1;
+}
+
+/* ---------------------------
+   NAVIGATION LINKS
+----------------------------*/
+.nav-links {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.nav-links a {
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+/* ---------------------------
+   SCORE PAGE
+----------------------------*/
+.score-box {
+    width: 280px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.score-box p {
+    font-size: 24px;
+    color: #27ae60;
+}
